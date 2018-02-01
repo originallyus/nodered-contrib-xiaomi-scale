@@ -14,7 +14,10 @@ module.exports = function(RED) {
 
     miscale.on('data', function (scale) {
       console.log(scale);
-      node.send(scale)
+      msg = scale;
+      msg.payload  = scale.weight
+
+      node.send(msg)
     });
   }
   RED.nodes.registerType("Xiaomi Scale",xiaomiScale);
