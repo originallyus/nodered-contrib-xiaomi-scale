@@ -1,0 +1,1 @@
+# nodered-contrib-xiaomi-scale
