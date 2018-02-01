@@ -1,0 +1,32 @@
+{
+    "name": "nodered-contrib-xiaomi-scale",
+    "version": "0.0.1",
+    "description": "A node for Xiaomi Scale",
+    "homepage": "https://github.com/originallyus/nodered-contrib-xiaomi-scale",
+    "keywords": [
+        "node-red",
+        "xiaomi",
+        "scale"
+    ],
+    "bugs": {
+        "url": "https://github.com/originallyus/nodered-contrib-xiaomi-scale/issues",
+        "email": "hello@originally.us"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/originallyus/nodered-contrib-xiaomi-scale"
+    },
+    "author": "Originally US <hello@originally.us>",
+    "license": "ISC",
+    "node-red": {
+        "nodes": {
+            "XiaomiScale": "XiaomiScale.js"
+        }
+    },
+    "dependencies": {
+        "noble": "^1.9.0"
+    },
+    "devDependencies": {
+        "mocha": ""
+    }
+}
