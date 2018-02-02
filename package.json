@@ -1,6 +1,6 @@
 {
     "name": "nodered-contrib-xiaomi-scale",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A node for Xiaomi Scale",
     "homepage": "https://github.com/originallyus/nodered-contrib-xiaomi-scale",
     "keywords": [
