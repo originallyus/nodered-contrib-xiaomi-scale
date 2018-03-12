@@ -5,7 +5,8 @@
     category: 'input',
     color: '#FADCA7',
     defaults: {
-      name: {value:""}
+      name: {value:""},
+      showalldata: {value: "false"}
     },
     inputs:0,
     outputs:1,
@@ -22,6 +23,14 @@
     <label for="node-input-name"><i class="icon-tag"></i> Name</label>
     <input type="text" id="node-input-name" placeholder="Name">
   </div>
+
+  <div class="form-row">
+    <label for="node-input-showalldata"><i class="icon-tag"></i> Stable Output Only</label>
+    <input type="checkbox" id="node-input-showalldata">
+  </div>
+  <div class="form-tips">Only output msg object when  <STRONG>isStabilized</STRONG> and <STRONG>loadRemoved</STRONG> attributes is <code>true</code></div>
+</script>
+
 </script>
  
 <script type="text/x-red" data-help-name="Xiaomi Scale">

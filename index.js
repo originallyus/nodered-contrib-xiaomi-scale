@@ -80,11 +80,12 @@ class MiScale extends EventEmitter {
     };
 
     startScanning() {
-        noble.on('stateChange', function(state) {
-            if (state === 'poweredOn') {
-                noble.startScanning([], true);
-            }
-        });
+        noble.startScanning([], true);
+        // noble.on('stateChange', function(state) {
+        //     if (state === 'poweredOn') {
+        //         noble.startScanning([], true);
+        //     }
+        // });
     };
 
     stopScanning() {
