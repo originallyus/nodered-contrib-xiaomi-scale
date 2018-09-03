@@ -14,7 +14,7 @@ class MiScale extends EventEmitter {
         });
     };
 
-    _scaleListener(peripheral) {
+    _xiaoMiScaleListener(peripheral) {
         let scale = new Object();
 
         scale.address = peripheral.address;
@@ -29,7 +29,7 @@ class MiScale extends EventEmitter {
         scale.manufacturerData = peripheral.advertisement.manufacturerData;
 
         //Is it duplicated packet?
-        if(this._scales[scale.address] &&
+        if (this._scales[scale.address] &&
            this._scales[scale.address].svcData.compare(scale.svcData) == 0) {
             return;
         }
@@ -43,7 +43,7 @@ class MiScale extends EventEmitter {
         scale.isStabilized = ((svcData[0] & (1<<5)) !== 0) ? true : false;
         scale.loadRemoved = ((svcData[0] & (1<<7)) !== 0) ? true : false;
 
-        if((svcData[0] & (1<<4)) !== 0) { // Chinese Catty
+        if ((svcData[0] & (1<<4)) !== 0) { // Chinese Catty
             scale.unit = "jin";
         } else if ((svcData[0] & 0x0F) === 0x03) { // Imperial pound
             scale.unit = "lbs";
@@ -63,19 +63,24 @@ class MiScale extends EventEmitter {
         this.emit('data', scale);
     };
 
+    _yunmaiScaleListener(peripheral) {
+        let scale = new Object();
+        console.log("Yunmai scale detected!");
+    }
+
     _nobleDiscoverListener(peripheral) {
-        if(this._macAddr != undefined) {
-            if(peripheral.address == this._macAddr &&
-               peripheral.advertisement.localName === "MI_SCALE") {
-                // Matched!
-                this._scaleListener(peripheral);
-            }
-        } else {
-            // Match any Xiaomi scale and send event.
-            if(peripheral.advertisement.localName === "MI_SCALE") {
-                //Matched!
-                this._scaleListener(peripheral);
-            }
+        let passMacAddress = true;
+        if (this._macAddr != undefined && peripheral.address != this._macAddr)
+            passMacAddress = false;
+
+        if (!passMacAddress)
+            return;
+
+        if (peripheral.advertisement.localName.includes('MI_SCALE')) {
+            this._xiaoMiScaleListener(peripheral);
+        }
+        if (peripheral.advertisement.localName.includes('YUNMAI')) {
+            this._yunmaiScaleListener(peripheral);
         }
     };
 
