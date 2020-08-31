@@ -1,5 +1,5 @@
 const EventEmitter = require('events');
-var noble = require('noble');
+var noble = require('@abandonware/noble');;
 
 class MiScale extends EventEmitter {
     constructor(macAddr) {
