@@ -36,4 +36,4 @@ Check out [RMPlugin app](https://play.google.com/store/apps/details?id=us.origin
 
 
 ## TODO
-  * To be tested with XiaoMi Scale version 2 & 3
+  * To be tested with XiaoMi Scale version 3

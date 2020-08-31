@@ -76,10 +76,11 @@ class MiScale extends EventEmitter {
         if (!passMacAddress)
             return;
 
-        if (peripheral.advertisement.localName.includes('MI_SCALE')) {
+        let localName = peripheral.advertisement.localName;
+        if (localName.includes('MI_SCALE') || localName.includes('MI SCALE2')) {
             this._xiaoMiScaleListener(peripheral);
         }
-        if (peripheral.advertisement.localName.includes('YUNMAI')) {
+        if (localName.includes('YUNMAI')) {
             this._yunmaiScaleListener(peripheral);
         }
     };
